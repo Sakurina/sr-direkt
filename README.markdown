@@ -17,7 +17,7 @@ The SR app has one major defect: it currently does not use the proper multitaski
 ## Powered by
 * [Zepto][3] for DOM manipulation
 * [Route.js][4] for routing
-* [Store.js][5] for preference-keeping
+* The [no-JSON fork][6] of [Store.js][5] for preference-keeping
 * HTML5 audio tag
 
 [1]: http://sr.se
@@ -25,3 +25,4 @@ The SR app has one major defect: it currently does not use the proper multitaski
 [3]: http://zeptojs.com/
 [4]: http://maraksquires.com/route.js/
 [5]: https://github.com/marcuswestin/store.js
+[6]: https://github.com/cloudhead/store.js

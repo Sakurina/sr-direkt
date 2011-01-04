@@ -3,9 +3,7 @@ URLS = {
   p1: "http://mobil-live.sr.se/mobilradio/kanaler/p1-aac-96/playlist.m3u8",
   p2: "http://mobil-live.sr.se/mobilradio/kanaler/p2-aac-96/playlist.m3u8",
   p3: "http://mobil-live.sr.se/mobilradio/kanaler/p3-aac-96/playlist.m3u8",
-  p4: function(k) {
-    return "http://mobil-live.sr.se/mobilradio/kanaler/p4"+k+"-aac-96/playlist.m3u8"
-  }
+  p4: function(k) { return "http://mobil-live.sr.se/mobilradio/kanaler/p4"+k+"-aac-96/playlist.m3u8" }
 }
 
 /*** NOW PLAYING API URLS ***/
