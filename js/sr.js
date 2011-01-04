@@ -45,41 +45,52 @@ LOKAL_KANALER = {
   "ostergotland": "Östergötland"
 };
 
-/*** ROUTES ***/
-route('#/_').bind(function() {
+function resetKanalerState() {
   $('#settings').hide();
   $('#kanaler').show();
-  $('#ap').html('&nbsp;');
   $('.lyssna').removeClass('lyssna');
   $('#links').html("<a href='#/settings'>Settings</a>");
+}
+
+function prepareAudioPlayer(url) {
+  $('#ap').html("<audio src='"+url+"' controls='controls'></audio>");
+}
+
+function savedLocalStation() {
+  var k = store.get('local_station');
+  if (k === undefined)
+    k = "stockholm";
+  return k;
+}
+
+/*** ROUTES ***/
+route('#/_').bind(function() {
+  resetKanalerState();
+  $('#ap').html('&nbsp;');
 });
 
 route('#/p1').bind(function() {
-  $('.lyssna').removeClass('lyssna');
+  resetKanalerState();
   $('#p1').addClass('lyssna');
-  $('#ap').html("<audio src='"+URLS.p1+"' controls='controls'></audio>");
+  prepareAudioPlayer(URLS.p1);
 });
 
 route('#/p2').bind(function() {
-  $('.lyssna').removeClass('lyssna');
+  resetKanalerState();
   $('#p2').addClass('lyssna');
-  $('#ap').html("<audio src='"+URLS.p2+"' controls='controls'></audio>");
+  prepareAudioPlayer(URLS.p2);
 });
 
 route('#/p3').bind(function() {
-  $('.lyssna').removeClass('lyssna');
+  resetKanalerState();
   $('#p3').addClass('lyssna');
-  $('#ap').html("<audio src='"+URLS.p3+"' controls='controls'></audio>");
+  prepareAudioPlayer(URLS.p3);
 });
 
 route('#/p4').bind(function() {
-  $('.lyssna').removeClass('lyssna');
+  resetKanalerState();
   $('#p4').addClass('lyssna');
-  var k = store.get('local_station');
-  if (k === undefined) {
-    k = "stockholm";
-  }
-  $('#ap').html("<audio src='"+URLS.p4(k)+"' controls='controls'></audio>");
+  prepareAudioPlayer(URLS.p4(savedLocalStation()));
 });
 
 route('#/settings').bind(function() {
@@ -112,7 +123,7 @@ $(document).ready(function() {
     lk_html += "<option value='"+k+"'>"+LOKAL_KANALER[k]+"</option>";
   }
   $('#local_station').html(lk_html);
-  $('#local_station').get(0).value = store.get('local_station');
+  $('#local_station').get(0).value = savedLocalStation();
   /*** RESTORE HISTORY ***/
   if (store.get('last_state') != undefined) {
     location.hash = store.get('last_state');
