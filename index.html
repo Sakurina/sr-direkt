@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>SR Direkt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=320; user-scalable=false">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/zepto.min.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/json.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/sr.js"></script>
+  </head>
+  <body>
+    <div id="kanaler">
+      <div class="kanal" id="p1">
+        <img src="p1.png" width="86" height="60">
+      </div>
+      <div class="kanal" id="p2">
+        <img src="p2.png" width="86" height="60">
+      </div>
+      <div class="kanal" id="p3">
+        <img src="p3.png" width="86" height="60">
+      </div>
+      <div class="kanal" id="p4">
+        <img src="p4.png" width="86" height="60">
+      </div>
+    </div>
+    <div id="settings">
+      <div class="rrect">
+        <select id="local_station" onchange="p4change()">
+        </select>
+        Lokal P4-kanal
+      </div>
+    </div>
+    <div id="bottombar">
+      <div id="ap">
+        &nbsp;
+      </div>
+      <div id="links">
+        <a href="#/settings">Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+body {
+  font-family: "Helvetica";
+  font-size: 0.9em;
+  padding: 0px;
+  margin: 0px;
+  background-color: #111;
+  color: #EEE;
+  height: 416px !important;
+}
+.kanal { 
+  background-color: #222; 
+  height: 90px; 
+  border-bottom: 1px solid #111; 
+  -webkit-transition: background-color 0.2s linear;
+  text-align: center;
+}
+.kanal img { 
+  padding: 15px; 
+}
+.just_nu { 
+  font-weight: bold; 
+  display: block; 
+}
+#p1.lyssna { 
+  background-color: #32C8D7;
+}
+#p2.lyssna { 
+  background-color: #FF5A00; 
+}
+#p3.lyssna { 
+  background-color: #00C88C; 
+}
+#p4.lyssna { 
+  background-color: #C31EAA;
+}
+a {
+  color: #FFF;
+}
+#bottombar {
+  height: 32px;
+}
+#ap {
+  float: left;
+  position: relative;
+  top: 21px;
+}
+#links {
+  float: right;
+  padding: 8px;
+  position: relative;
+  top: 9px;
+}
+#settings {
+  display: none;
+}
+.rrect {
+  margin: 7px;
+  padding: 7px;
+  border: 1px solid #222;
+  -webkit-border-radius: 6px;
+  background-color: #202020;
+}
+#local_station { float: right; }
