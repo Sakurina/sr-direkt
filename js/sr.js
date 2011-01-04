@@ -63,6 +63,15 @@ function savedLocalStation() {
   return k;
 }
 
+function populateLocalStationMenu() {
+  var lk_html = "";
+  for (var k in LOKAL_KANALER) {
+    lk_html += "<option value='"+k+"'>"+LOKAL_KANALER[k]+"</option>";
+  }
+  $('#local_station').html(lk_html);
+  $('#local_station').get(0).value = savedLocalStation();
+}
+
 /*** ROUTES ***/
 route('#/_').bind(function() {
   resetKanalerState();
@@ -117,13 +126,7 @@ Dispatcher._onhashchange = function() {
 setInterval(function() { Dispatcher._onhashchange(); }, 50);
 
 $(document).ready(function() {
-  /*** POPULATE LOCAL STATION MENU ***/
-  var lk_html = "";
-  for (var k in LOKAL_KANALER) {
-    lk_html += "<option value='"+k+"'>"+LOKAL_KANALER[k]+"</option>";
-  }
-  $('#local_station').html(lk_html);
-  $('#local_station').get(0).value = savedLocalStation();
+  populateLocalStationMenu();
   /*** RESTORE HISTORY ***/
   if (store.get('last_state') != undefined) {
     location.hash = store.get('last_state');
@@ -135,4 +138,5 @@ $(document).ready(function() {
   $('#p2').tap(function() { location.hash = '#/p2'; });
   $('#p3').tap(function() { location.hash = '#/p3'; });
   $('#p4').tap(function() { location.hash = '#/p4'; });
+  window.scrollTo(0,1);
 });
