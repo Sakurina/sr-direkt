@@ -10,9 +10,7 @@ The SR app has one major defect: it currently does not use the proper multitaski
 * Background audio that lasts longer than 10 minutes.
 * AirPlay.
 * Remembers what your preferred P4 local station is.
-
-## What this is lacking
-* Now playing information. The API used by the header of sr.se doesn't allow cross-domain XHR, and accessing an iframe's document via JavaScript is no longer allowed. (You *could* have a server-side script do the cross-domain request for you, I suppose.)
+* Live-updating now playing information (with complementary PHP script, still in development)
 
 ## Powered by
 * [Zepto][3] for DOM manipulation

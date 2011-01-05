@@ -6,14 +6,6 @@ URLS = {
   p4: function(k) { return "http://mobil-live.sr.se/mobilradio/kanaler/p4"+k+"-aac-96/playlist.m3u8" }
 }
 
-/*** NOW PLAYING API URLS ***/
-JUST_NU_URLS = {
-  p1: "http://sverigesradio.se/api/rightnowinfo/rightnowinfo.aspx?unit=132",
-  p2: "http://sverigesradio.se/api/rightnowinfo/rightnowinfo.aspx?unit=163",
-  p3: "http://sverigesradio.se/api/rightnowinfo/rightnowinfo.aspx?unit=164",
-  p4: "http://sverigesradio.se/api/rightnowinfo/rightnowinfo.aspx?unit=701"
-}
-
 /*** P4 LOCAL CHANNELS ***/
 LOKAL_KANALER = {
   "blekinge": "Blekinge",
@@ -111,6 +103,15 @@ function p4change() {
   store.set('local_station', $('#local_station').get(0).value);
 }
 
+function updateNowPlaying() {
+  $.getJSON('just_nu.php', function(jn) {
+    $('#p1 .just_nu').html(jn["p1"]);
+    $('#p2 .just_nu').html(jn["p2"]);
+    $('#p3 .just_nu').html(jn["p3"]);
+    $('#p4 .just_nu').html(jn["p4"]);
+  });
+}
+
 /*** DISPATCH ROUTES ***/
 var Dispatcher = {};
 Dispatcher._hashchange_last = '';
@@ -137,4 +138,6 @@ $(document).ready(function() {
   $('#p3').tap(function() { location.hash = '#/p3'; });
   $('#p4').tap(function() { location.hash = '#/p4'; });
   window.scrollTo(0,1);
+  updateNowPlaying();
+  setInterval(updateNowPlaying, 60000); 
 });

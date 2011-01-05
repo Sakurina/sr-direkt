@@ -1,5 +1,5 @@
 body {
-  font-family: "Helvetica";
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 0.9em;
   padding: 0px;
   margin: 0px;
@@ -9,13 +9,18 @@ body {
 }
 .kanal { 
   background-color: #222; 
-  height: 90px; 
+  height: 60px; 
+  padding: 15px;
   border-bottom: 1px solid #111; 
   -webkit-transition: background-color 0.2s linear;
-  text-align: center;
+  font-size: 1.1em;
 }
 .kanal img { 
-  padding: 15px; 
+  float: right; 
+}
+.kanal p {
+  margin: 0;
+  padding: 7px 0px 0px 0px;
 }
 .just_nu { 
   font-weight: bold; 
