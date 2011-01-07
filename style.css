@@ -20,7 +20,7 @@ body {
 }
 .kanal p {
   margin: 0;
-  padding: 7px 0px 0px 0px;
+  padding: -3px 0px 0px 0px;
 }
 .just_nu { 
   font-weight: bold; 
@@ -66,3 +66,5 @@ a {
   background-color: #202020;
 }
 #local_station { float: right; }
+small { font-size: 0.75em; }
+.nasta_program { font-weight: bold; }

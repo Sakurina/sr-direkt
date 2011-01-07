@@ -105,10 +105,12 @@ function p4change() {
 
 function updateNowPlaying() {
   $.getJSON('just_nu.php', function(jn) {
-    $('#p1 .just_nu').html(jn["p1"]);
-    $('#p2 .just_nu').html(jn["p2"]);
-    $('#p3 .just_nu').html(jn["p3"]);
-    $('#p4 .just_nu').html(jn["p4"]);
+    var stations = ["p1", "p2", "p3", "p4"];
+    for (var i in stations) {
+      var s = stations[i];
+      $('#'+s+' .just_nu').html(jn[s]["now"]);
+      $('#'+s+' .nasta_program').html(jn[s]["next"]);
+    }
   });
 }
 

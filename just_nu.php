@@ -9,6 +9,19 @@
     return (string)($node);
   }
 
+  function next_show($xmldoc) {
+    $xp = $xmldoc->xpath('/RightNowInfo/Channel/NextProgramTitle');
+    $node = $xp[0];
+    return (string)($node);
+  }
+
+  function dict_for_station($xmldoc) {
+    return array(
+      "now" => current_show($xmldoc),
+      "next" => next_show($xmldoc)
+    );
+  }
+
   function p4_unit_for($city) {
     switch ($city) {
       case 'blekinge': return 213;
@@ -46,9 +59,9 @@
   $p4 = simplexml_load_file(api_url(p4_unit_for('stockholm')));
 
   echo json_encode(array(
-    "p1" => current_show($p1),
-    "p2" => current_show($p2),
-    "p3" => current_show($p3),
-    "p4" => current_show($p4)
+    "p1" => dict_for_station($p1),
+    "p2" => dict_for_station($p2),
+    "p3" => dict_for_station($p3),
+    "p4" => dict_for_station($p4)
   ));
 ?>
