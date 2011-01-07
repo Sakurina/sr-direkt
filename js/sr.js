@@ -59,6 +59,7 @@ function currentSwedishTime() {
 function resetKanalerState() {
   $('#settings').hide();
   $('#kanaler').show();
+  $('#bg').show();
   $('.lyssna').removeClass('lyssna');
   $('#links').html("<a href='#/settings'>Settings</a>");
 }
@@ -114,6 +115,7 @@ route('#/p4').bind(function() {
 });
 
 route('#/settings').bind(function() {
+  $('#bg').hide();
   $('#kanaler').hide();
   $('#settings').show();
   $('#links').html("<a href='#/_'>Back</a>");
@@ -133,6 +135,35 @@ function updateNowPlaying() {
       $('#'+s+' .nasta_program').html(jn[s]["next"]);
     }
   });
+}
+
+/*** CANVAS GRADIENTS ***/
+function renderBGGradients() {
+  var ctx = $('#bg').get(0).getContext('2d');
+  var p1 = ctx.createLinearGradient(0,0,0,90);
+  p1.addColorStop(1, '#2899a1');
+  p1.addColorStop(0.5, '#32c8d6');
+  p1.addColorStop(0, '#2899a1');
+  ctx.fillStyle = p1;
+  ctx.fillRect(0,0,320,90);
+  var p2 = ctx.createLinearGradient(0,91,0,181);
+  p2.addColorStop(1, '#cc4400');
+  p2.addColorStop(0.5, '#ff5900');
+  p2.addColorStop(0, '#cc4400');
+  ctx.fillStyle = p2;
+  ctx.fillRect(0,91,320,90);
+  var p3 = ctx.createLinearGradient(0,182,0,272);
+  p3.addColorStop(1, '#009465');
+  p3.addColorStop(0.5, '#00c78b');
+  p3.addColorStop(0, '#009465');
+  ctx.fillStyle = p3;
+  ctx.fillRect(0,182,320,90);
+  var p4 = ctx.createLinearGradient(0,273,0,363);
+  p4.addColorStop(1, '#8f177f');
+  p4.addColorStop(0.5, '#c21faa');
+  p4.addColorStop(0, '#8f177f');
+  ctx.fillStyle = p4;
+  ctx.fillRect(0,273,320,90);
 }
 
 /*** DISPATCH ROUTES ***/
@@ -160,6 +191,7 @@ $(document).ready(function() {
   $('#p2').tap(function() { location.hash = '#/p2'; });
   $('#p3').tap(function() { location.hash = '#/p3'; });
   $('#p4').tap(function() { location.hash = '#/p4'; });
+  renderBGGradients();
   window.scrollTo(0,1);
   updateNowPlaying();
   setInterval(updateNowPlaying, 60000); 

@@ -26,49 +26,14 @@ body {
   font-weight: bold; 
   display: block; 
 }
-#p1.lyssna { 
-  background-color: #32C8D7;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(1, rgb(40,153,161)),
-      color-stop(0.5, rgb(50,200,214)),
-      color-stop(0, rgb(40,153,161))
-  );  
+.kanal.lyssna {
+  background-color: transparent;
 }
-#p2.lyssna { 
-  background-color: #FF5A00; 
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(1, rgb(204,68,0)),
-      color-stop(0.5, rgb(255,89,0)),
-      color-stop(0, rgb(204,68,0))
-  );
-}
-#p3.lyssna { 
-  background-color: #00C88C; 
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(1, rgb(0,148,101)),
-      color-stop(0.5, rgb(0,199,139)),
-      color-stop(0, rgb(0,148,101))
-  );
-}
-#p4.lyssna { 
-  background-color: #C31EAA;
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(1, rgb(143,23,127)),
-      color-stop(0.5, rgb(194,31,170)),
-      color-stop(0, rgb(143,23,127))
-  );
+#bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -100;
 }
 a {
   color: #FFF;
