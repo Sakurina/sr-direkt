@@ -35,6 +35,27 @@ LOKAL_KANALER = {
   "ostergotland": "Östergötland"
 };
 
+/*** SWEDISH CLOCK ***/
+function formatTimeFragment(f) {
+  if (f.toString().length == 1)
+    return "0"+f.toString();
+  return f;
+}
+
+function formatTime(h, m) {
+  return formatTimeFragment(h)+":"+formatTimeFragment(m);
+}
+
+function currentSwedishTime() {
+  var utcOffset = 1; // Sweden is CET <=> GMT/UTC+1
+  var dt = new Date();
+  var h = dt.getUTCHours() + 1;
+  if (h == 24) h = 0;
+  var m = dt.getUTCMinutes();
+  return formatTime(h, m);
+}
+
+/*** HELPERS ***/
 function resetKanalerState() {
   $('#settings').hide();
   $('#kanaler').show();
